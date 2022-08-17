@@ -138,8 +138,9 @@ function loadDate(data) {
       console.log(task_input.value);
     });
     task_delete.addEventListener("click", (event) => {
+      list.innerHTML = "";
       deleteRowById(goal_id);
-      
+
     });
     task_edit.addEventListener("click", () => {
       console.log(task_edit.name);
