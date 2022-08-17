@@ -2,9 +2,6 @@
     --dark: #374151;
     --light: #EEE;
 }
-body{
-    overflow: hidden;
-}
 
 #firstcontainer, #homepagenavbar{
     font-family: 'Raleway', sans-serif;
@@ -69,6 +66,7 @@ body{
     flex-direction: column;
     margin-top: 20px;
     font-family: 'Playfair Display', serif;
+    overflow: hidden;
 }
 
 #secondcontainer .subcontainer{
