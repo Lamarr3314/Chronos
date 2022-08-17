@@ -2,6 +2,9 @@
     --dark: #374151;
     --light: #EEE;
 }
+body{
+    overflow: hidden;
+}
 
 #firstcontainer, #homepagenavbar{
     font-family: 'Raleway', sans-serif;
