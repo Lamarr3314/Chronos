@@ -1,0 +1,118 @@
+#navbar,
+#page {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: space-around;
+}
+#navbar{
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+#page div{
+    border: 1px solid var(--dark);
+    border-radius: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0px;
+}
+#page div:hover {
+  border: 1px solid  rgb(236, 149, 35);
+  background-color: rgb(236, 149, 35);
+}
+#page {
+  border: 2px solid black;
+  flex-direction: row;
+  border-radius: 25px;
+  justify-content: space-between;
+  justify-content: space-around;
+  width: 96%;
+}
+#homepageicon {
+  width: 40px;
+}
+#page a {
+  text-decoration: none;
+  color: black;
+}
+h1 {
+  text-align: center;
+}
+table tr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+#usercontainer {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border: 1px dashed black;
+  padding: 15px;
+}
+
+#usercontainer h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#editPfp {
+  text-align: center;
+}
+
+#output {
+  width: 100px;
+  border: 3px solid white;
+  border-radius: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#goalsPageBtn {
+  width: 75px;
+  height: 25px;
+  transform: skew(20deg);
+  background: #ffffff;
+}
+
+#progressPageBtn {
+  width: 75px;
+  height: 25px;
+  transform: skew(20deg);
+  background: #ffffff;
+}
+
+#badges {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  padding: 2%;
+  margin: 3%;
+}
+
+#AllGoalsDone {
+  width: 28%;
+}
+
+#Share {
+  width: 28%;
+}
+
+#Streak {
+  width: 28%;
+}
+#Planner {
+  width: 28%;
+}

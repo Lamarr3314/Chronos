@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>replit</title>
+    <link href="home.css" rel="stylesheet" type="text/css" />
+    <script src="home.js" defer></script>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <div id="photoContainer">
+        <a href="LoadUp.html"
+          ><img src="images/user.png" id="homepageicon"
+        /></a>
+      </div>
+      <div id="page">
+        <div><a href="goals.html">Goals</a></div>
+        <div><a href="progression.html">Progress</a></div>
+        <div><a href="home.html">Home</a></div>
+      </div>
+    </div>
+    <!--get help keeping the image on the webpage after it reloads  -->
+    <div id="editPfp">
+      <p>
+        <input
+          type="file"
+          accept="image/*"
+          name="image"
+          id="file"
+          onchange="loadFile(event)"
+          style="display: none"
+        />
+      </p>
+      <p><img id="output" /></p>
+      <p><label for="file" style="cursor: pointer">Edit Profile </label></p>
+    </div>
+
+    <div id="usercontainer">
+      <!--     for badges switch shapes to images  -->
+      <div id="badges">
+        <div>
+          <img id="Streak" src="images/StreakLock.png" />
+        </div>
+        <div>
+          <img id="Share" src="images/ShareLock.png" />
+        </div>
+        <div>
+          <img id="AllGoalsDone" src="images/AllGoalsDoneLock.png" />
+        </div>
+        <div>
+          <img id="Planner" src="images/PlannerLock.png" />
+        </div>
+      </div>
+
+      <table>
+        <tr>
+          <td>
+            <!--           Reference goals and print them -->
+            <p>You have __ goals left</p>
+          </td>
+          <td>
+            <a href="goals.html"><button id="goalsPageBtn">Goals</button></a>
+          </td>
+        </tr>
+        <!--       <tr>
+        <td>
+          <p>Connect with your friends </p>
+        </td>
+        <td>
+          <button >Connect</button>
+        </td>
+      </tr> -->
+        <tr>
+          <td>
+            <p>Track you daily progress</p>
+          </td>
+          <td>
+            <a href="progression.html"
+              ><button id="progressPageBtn">Progress</button></a
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+    <script
+      src="https://replit.com/public/js/replit-badge.js"
+      theme="blue"
+      defer
+    ></script>
+  </body>
+</html>
