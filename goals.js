@@ -235,6 +235,7 @@ function deleteRowById(goal_id) {
 }
 
 function updateRowById(goal_name, goal_id) {
+  list.innerHTML = "";
   console.log("line 225 script.js is run");
   fetch("https://cronos-productivity.herokuapp.com/update", {
     method: "PATCH",
