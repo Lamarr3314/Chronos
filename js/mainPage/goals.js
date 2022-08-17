@@ -113,14 +113,14 @@ function loadDate(data) {
     const task_edit = document.createElement("button");
     task_edit.classList.add("edit");
     task_edit.innerHTML =
-      '<img src = "images/edit.png" data-id="' + goal_id + '">';
+      '<img src = "../../images/edit.png" data-id="' + goal_id + '">';
     task_edit.name = "edit";
     task_edit.setAttribute("data-id", goal_id);
 
     const task_delete = document.createElement("button");
     task_delete.classList.add("delete");
     task_delete.innerHTML =
-      '<img src = "images/delete.png" data-id="' + goal_id + '">';
+      '<img src = "../../images/delete.png" data-id="' + goal_id + '">';
     task_delete.setAttribute("data-id", goal_id);
 
     const task_completed = document.createElement("input");
@@ -158,7 +158,7 @@ function loadDate(data) {
       if (task_edit.name == "edit") {
         task_input.removeAttribute("readonly");
         task_input.focus();
-        task_edit.innerHTML = '<img src = "images/check.png">';
+        task_edit.innerHTML = '<img src = "../../images/check.png">';
         task_edit.name = "check";
       } else {
         list.innerHTML = "";
@@ -166,7 +166,7 @@ function loadDate(data) {
         // UPDATE TASK WITH THE NEW VALUE OF THE TASK_INPUT
         task_edit.name = "edit";
         task_input.setAttribute("readonly", "readonly");
-        task_edit.innerHTML = '<img src = "images/edit.png">';
+        task_edit.innerHTML = '<img src = "../../images/edit.png">';
         console.log(task_input.value);
       }
     });
@@ -219,12 +219,12 @@ function insertDivEl(data) {
 
   const task_edit = document.createElement("button");
   task_edit.classList.add("edit");
-  task_edit.innerHTML = '<img src = "images/edit.png">';
+  task_edit.innerHTML = '<img src = "../../images/edit.png">';
   task_edit.name = "edit";
 
   const task_delete = document.createElement("button");
   task_delete.classList.add("delete");
-  task_delete.innerHTML = '<img src = "images/delete.png">';
+  task_delete.innerHTML = '<img src = "../../images/delete.png">';
 
   const task_completed = document.createElement("input");
   task_completed.classList.add("completed");

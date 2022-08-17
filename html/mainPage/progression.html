@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>replit</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <link href="../../css/mainPage/progression.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/mainPage/progression.js" defer></script>
+    <div id="navbar">
+      <div id="photoContainer">
+        <a href="../signIn/index.html"
+          ><img src="../../images/user.png" id="homepageicon"
+        /></a>
+      </div>
+      <div id="page">
+        <div><a href="../mainPage/goals.html">Goals</a></div>
+        <div><a href="../mainPage/progression.html">Progress</a></div>
+        <div><a href="../mainPage/home.html">Home</a></div>
+        <div><a href="../mainPage/connect.html">Connect</a></div>
+      </div>
+    </div>
+  </head>
+  <body>
+    <div id="everything">
+      <div class="slidecontainer">
+        <p>Your Daily Progression:</p>
+        <input type="range" min="1" max="100" value="50" class="slider" />
+      </div>
+
+      <h1>Your weekly Goal Success Percentage</h1>
+      <div id="chartContainer">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
