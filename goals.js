@@ -176,6 +176,7 @@ function loadDate(data) {
         task_input.style.textDecoration = "none";
         task_input.style.opacity = 1;
         task_input.style.color = "#EEE";
+        list.innerHTML = "";
       }
     });
   });
