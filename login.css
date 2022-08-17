@@ -1,0 +1,131 @@
+.button-85 {
+  display: flex;
+  background-color: #f6a32d;
+  flex-direction: column;
+  width: 375px;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  border-radius: 20%;
+}
+.button-85 div {
+  padding: 6%;
+}
+.button-85 h1 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #1f2937;
+}
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  border-radius: 20%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #f17e3c,
+    #fcc213,
+    #f6a32d,
+    #ec523c,
+    #ec603c,
+    #f48c44,
+    #f48c44,
+    #f48040,
+    #f48040
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 20%;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: dimgray;
+  left: 0;
+  top: 0;
+  border-radius: 20%;
+}
+.button-87 {
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(
+    45deg,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-87:active {
+  transform: scale(0.95);
+}
+
+#usr,
+#email {
+  background-color: #374151;
+  border-radius: 200px;
+  border: 0px;
+  padding: 15px;
+  border-color: #374151;
+}
+.button-85 a{
+    text-decoration: none;
+    color: white;
+}
+body{
+    background-color: #374151;
+}

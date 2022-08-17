@@ -221,5 +221,9 @@
     #secondcontainer h1{
         font-size: 30px;
     }
-
+    
+}
+a {
+    text-decoration: none;
+    color: hsl(0deg 3% 58%);
 }
