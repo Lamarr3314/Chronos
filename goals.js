@@ -88,7 +88,7 @@ function loadDate(data) {
     console.log("u got no data");
     return;
   }
-  data.forEach(function ({ goal_id, goal_name, date_added }) {
+  data.forEach(function ({ goal_id, goal_name, date_added, is_completed }) {
     // list.innerHTML = "";
     console.log(data);
     const task = document.createElement("div");
@@ -134,6 +134,18 @@ function loadDate(data) {
 
     task.appendChild(task_actions);
     list.appendChild(task);
+    if(is_completed==1){
+      task_completed.checked=true;
+      task_input.style.textDecoration = "line-through";
+      task_input.style.opacity = 0.5;
+      task_input.style.color = "#1fd655";
+    }
+    if(is_completed==0){
+      task_completed.checked=false;
+      task_input.style.textDecoration = "none";
+        task_input.style.opacity = 1;
+        task_input.style.color = "#EEE";
+    }
     task_completed.addEventListener("click", (event) => {
       console.log(task_input.value);
     });
@@ -160,14 +172,20 @@ function loadDate(data) {
     });
     task_completed.addEventListener("click", () => {
       if (task_completed.checked) {
-        insertData("NA", "NA", "checkBox", goal_id, 1);
+        if(is_completed==0){
+          is_completed=1
+        }
+        insertData("NA", "NA", "checkBox", goal_id, is_completed);
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE TRUE
         console.log("changed");
         task_input.style.textDecoration = "line-through";
         task_input.style.opacity = 0.5;
         task_input.style.color = "#1fd655";
       } else {
-        insertData("NA", "NA", "checkBox", goal_id, 1);
+        if(is_completed==1){
+          is_completed=0
+        }
+        insertData("NA", "NA", "checkBox", goal_id, is_completed);
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE FALSE
         console.log("revert");
         task_input.style.textDecoration = "none";
