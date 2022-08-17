@@ -221,7 +221,7 @@ function insertDivEl(data) {
   console.log(data.is_completed);
 }
 function deleteRowById(goal_id) {
-  fetch("http://localhost:5000/delete/" + goal_id, {
+  fetch("https://cronos-productivity.herokuapp.com/delete/" + goal_id, {
     method: "DELETE",
   })
     .then((response) => response.json())
@@ -234,7 +234,7 @@ function deleteRowById(goal_id) {
 
 function updateRowById(goal_name, goal_id) {
   console.log("line 225 script.js is run");
-  fetch("http://localhost:5000/update", {
+  fetch("https://cronos-productivity.herokuapp.com/update", {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
@@ -252,7 +252,7 @@ function updateRowById(goal_name, goal_id) {
     });
 }
 function getAllData(date_added, user_id) {
-  fetch("http://localhost:5000/getAll", {
+  fetch("https://cronos-productivity.herokuapp.com/getAll", {
     headers: {
       "Content-type": "application/json",
     },
@@ -265,13 +265,13 @@ function getAllData(date_added, user_id) {
     .then((data) => loadDate(data["data"]));
 }
 function getDateData(date_added, user_id) {
-  fetch("http://localhost:5000/search/" + user_id + "/" + date_added)
+  fetch("https://cronos-productivity.herokuapp.com/search/" + user_id + "/" + date_added)
     .then((response) => response.json())
     .then((data) => loadDate(data["data"]));
 }
 function insertData(inputVal, dueDate, type, goal_id, cValue) {
   if (type == "goal") {
-    fetch("http://localhost:5000/insert", {
+    fetch("https://cronos-productivity.herokuapp.com/insert", {
       headers: {
         "Content-type": "application/json",
       },
@@ -291,7 +291,7 @@ function insertData(inputVal, dueDate, type, goal_id, cValue) {
     // DATE SELEECTED IS IN VARIABLE DUE DATE
     console.log("success");
   } else {
-    fetch("http://localhost:5000/insert", {
+    fetch("https://cronos-productivity.herokuapp.com/insert", {
       headers: {
         "Content-type": "application/json",
       },
