@@ -140,7 +140,6 @@ function loadDate(data) {
     task_delete.addEventListener("click", (event) => {
       list.innerHTML = "";
       deleteRowById(goal_id);
-
     });
     task_edit.addEventListener("click", () => {
       console.log(task_edit.name);
@@ -150,6 +149,7 @@ function loadDate(data) {
         task_edit.innerHTML = '<img src = "images/check.png">';
         task_edit.name = "check";
       } else {
+        list.innerHTML = "";
         updateRowById(task_input.value, goal_id);
         // UPDATE TASK WITH THE NEW VALUE OF THE TASK_INPUT
         task_edit.name = "edit";
@@ -159,9 +159,7 @@ function loadDate(data) {
       }
     });
     task_completed.addEventListener("click", () => {
-      list.innerHTML = "";
       if (task_completed.checked) {
-        list.innerHTML = "";
         insertData("NA", "NA", "checkBox", goal_id, 1);
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE TRUE
         console.log("changed");
@@ -169,14 +167,12 @@ function loadDate(data) {
         task_input.style.opacity = 0.5;
         task_input.style.color = "#1fd655";
       } else {
-        list.innerHTML = "";
         insertData("NA", "NA", "checkBox", goal_id, 1);
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE FALSE
         console.log("revert");
         task_input.style.textDecoration = "none";
         task_input.style.opacity = 1;
         task_input.style.color = "#EEE";
-        list.innerHTML = "";
       }
     });
   });
@@ -215,7 +211,7 @@ function insertDivEl(data) {
   const task_completed = document.createElement("input");
   task_completed.classList.add("completed");
   task_completed.type = "checkbox";
-  task_completed.value=true;
+  task_completed.value = true;
 
   task_actions.appendChild(task_completed);
   task_actions.appendChild(task_edit);
@@ -271,7 +267,12 @@ function getAllData(date_added, user_id) {
     .then((data) => loadDate(data["data"]));
 }
 function getDateData(date_added, user_id) {
-  fetch("https://cronos-productivity.herokuapp.com/search/" + user_id + "/" + date_added)
+  fetch(
+    "https://cronos-productivity.herokuapp.com/search/" +
+      user_id +
+      "/" +
+      date_added
+  )
     .then((response) => response.json())
     .then((data) => loadDate(data["data"]));
 }
