@@ -82,6 +82,7 @@ window.addEventListener("load", () => {
 
 function loadDate(data) {
   // some variable to hold data, from index.html
+  console.log("This is your data: " + data.is_completed);
   if (data.length === 0) {
     list.innerHTML = "";
     hasData = false;
@@ -134,17 +135,17 @@ function loadDate(data) {
 
     task.appendChild(task_actions);
     list.appendChild(task);
-    if(is_completed==1){
-      task_completed.checked=true;
+    if (is_completed == 1) {
+      task_completed.checked = true;
       task_input.style.textDecoration = "line-through";
       task_input.style.opacity = 0.5;
       task_input.style.color = "#1fd655";
     }
-    if(is_completed==0){
-      task_completed.checked=false;
+    if (is_completed == 0) {
+      task_completed.checked = false;
       task_input.style.textDecoration = "none";
-        task_input.style.opacity = 1;
-        task_input.style.color = "#EEE";
+      task_input.style.opacity = 1;
+      task_input.style.color = "#EEE";
     }
     task_completed.addEventListener("click", (event) => {
       console.log(task_input.value);
@@ -172,8 +173,8 @@ function loadDate(data) {
     });
     task_completed.addEventListener("click", () => {
       if (task_completed.checked) {
-        if(is_completed==0){
-          is_completed=1
+        if (is_completed == 0) {
+          is_completed = 1;
         }
         insertData("NA", "NA", "checkBox", goal_id, is_completed);
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE TRUE
@@ -182,8 +183,8 @@ function loadDate(data) {
         task_input.style.opacity = 0.5;
         task_input.style.color = "#1fd655";
       } else {
-        if(is_completed==1){
-          is_completed=0
+        if (is_completed == 1) {
+          is_completed = 0;
         }
         insertData("NA", "NA", "checkBox", goal_id, is_completed);
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE FALSE
@@ -206,14 +207,14 @@ function insertDivEl(data) {
   task_content.classList.add("content");
 
   task.appendChild(task_content);
-
+  let is_completed = data.is_completed;
   const task_input = document.createElement("input");
   task_input.classList.add("text");
   task_input.type = "text";
   task_input.value = data.goal_name;
   task_input.setAttribute("readonly", "readonly");
   task_content.appendChild(task_input);
-
+  let goal_id=data.goal_id;
   const task_actions = document.createElement("div");
   task_actions.classList.add("actions");
 
@@ -234,11 +235,58 @@ function insertDivEl(data) {
   task_actions.appendChild(task_completed);
   task_actions.appendChild(task_edit);
   task_actions.appendChild(task_delete);
-
+  console.log(is_completed);
   task.appendChild(task_actions);
   list.appendChild(task);
   console.log(dataLoaded);
-  console.log(data.is_completed);
+
+  task_completed.addEventListener("click", (event) => {
+    console.log(task_input.value);
+  });
+  task_delete.addEventListener("click", (event) => {
+    list.innerHTML = "";
+    deleteRowById(goal_id);
+  });
+  task_edit.addEventListener("click", () => {
+    console.log(task_edit.name);
+    if (task_edit.name == "edit") {
+      task_input.removeAttribute("readonly");
+      task_input.focus();
+      task_edit.innerHTML = '<img src = "../../images/check.png">';
+      task_edit.name = "check";
+    } else {
+      list.innerHTML = "";
+      updateRowById(task_input.value, goal_id);
+      // UPDATE TASK WITH THE NEW VALUE OF THE TASK_INPUT
+      task_edit.name = "edit";
+      task_input.setAttribute("readonly", "readonly");
+      task_edit.innerHTML = '<img src = "../../images/edit.png">';
+      console.log(task_input.value);
+    }
+  });
+  task_completed.addEventListener("click", () => {
+    if (task_completed.checked) {
+      if (is_completed == 0) {
+        is_completed = 1;
+      }
+      insertData("NA", "NA", "checkBox", goal_id, is_completed);
+      // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE TRUE
+      console.log("changed");
+      task_input.style.textDecoration = "line-through";
+      task_input.style.opacity = 0.5;
+      task_input.style.color = "#1fd655";
+    } else {
+      if (is_completed == 1) {
+        is_completed = 0;
+      }
+      insertData("NA", "NA", "checkBox", goal_id, is_completed);
+      // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE FALSE
+      console.log("revert");
+      task_input.style.textDecoration = "none";
+      task_input.style.opacity = 1;
+      task_input.style.color = "#EEE";
+    }
+  });
 }
 function deleteRowById(goal_id) {
   fetch("https://cronos-productivity.herokuapp.com/delete/" + goal_id, {
