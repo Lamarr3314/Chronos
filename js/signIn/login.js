@@ -1,5 +1,6 @@
 let noAccount = false;
 let usrname;
+let finalName;
 let email;
 window.addEventListener("load", (event) => {
   let login = document.getElementById("loginBTN");
@@ -18,6 +19,7 @@ function loginProc(first_name, email_address) {
     alert("Please fill out the email value");
   } else {
     fetchLogin(first_name, email_address);
+    finalName=first_name;
   }
 }
 function fetchLogin(first_name, email_address) {
@@ -46,7 +48,7 @@ function interpretLogin(data) {
 function extractData(data) {
   data.forEach(function ({ user_id }) {
     console.log(user_id);
-    document.cookie = "user_id=" + user_id + ";path=/;";
+    document.cookie = "user_id=" + user_id + "name="+ finalName +";path=/;";
     let decodedCookie = decodeURIComponent(document.cookie);
     console.log(decodedCookie);
     cookieArr = decodedCookie.split("=");
