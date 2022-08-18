@@ -75,7 +75,6 @@
   width: 40px;
 }
 
-
 #heading, #new-post-container{
     padding: 2rem 2rem;
     max-width: 1000px;
@@ -142,9 +141,9 @@ input, button, textarea{
     background-color: var(--darker);
     padding: 20px;
     padding-right: 90px;
-    border-radius: 15px;
     display: flex;
     align-items: center;
+    border-bottom: 2px solid var(--gray)
 }
 
 #yourfeed .feedcontainer .profile{
