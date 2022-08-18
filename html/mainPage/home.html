@@ -35,11 +35,21 @@
         />
       </p>
       <p><img id="output" /></p>
-      <p><label for="file" style="cursor: pointer" class = "orange">Edit Profile </label></p>
+      <p>
+        <label for="file" style="cursor: pointer" class="orange"
+          >Edit Profile
+        </label>
+      </p>
     </div>
 
     <div id="usercontainer">
-      <h2 class = "orange">Keep collecting more badges</h2>
+      <div class="dashboard">
+        <svg>
+          <circle class="bg" cx="57" cy="57" r="52" />
+          <circle class="meter-2" cx="57" cy="57" r="52" />
+        </svg>
+      </div>
+      <h2 class="orange">Keep collecting more badges</h2>
       <div id="badges">
         <div>
           <img id="AllGoalsDone" src="../../images/AllGoalsDoneUnlocked.png" />
@@ -54,17 +64,12 @@
           <img id="Share" src="../../images/ShareLock.png" />
         </div>
       </div>
-        <div class="dashboard">
-          <svg>
-            <circle class="bg" cx="57" cy="57" r="52" />
-            <circle class="meter-2" cx="57" cy="57" r="52" />
-          </svg>
-        </div>
+
       <table>
         <tr>
           <td>
             <!--           Reference goals and print them -->
-            <p class = "bluegradient">You still have goals to achieve!</p>
+            <p class="bluegradient">You still have goals to achieve!</p>
           </td>
           <td>
             <a href="goals.html"><button id="goalsPageBtn">Goals</button></a>

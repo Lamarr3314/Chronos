@@ -1,3 +1,10 @@
+const realuser_id = getCookie(decodeURIComponent(document.cookie));
+function getCookie(decodedCookie) {
+  let cookieArr = decodedCookie.split("=");
+  console.log(cookieArr);
+  let tempcookie = cookieArr[1];
+  return tempcookie;
+}
 const list = document.querySelector("#tasks");
 let hasData = false;
 let dueDate;
@@ -19,7 +26,7 @@ window.addEventListener("load", () => {
 
   dueDate = calendar.value;
   // getAllData(dueDate, 3)
-  getDateData(dueDate, 3);
+  getDateData(dueDate, realuser_id);
   list.innerHTML = "";
   console.log("This code runs");
 
@@ -41,7 +48,7 @@ window.addEventListener("load", () => {
     list.innerHTML = "";
     console.log("changed");
     dueDate = calendar.value;
-    getDateData(dueDate, 3);
+    getDateData(dueDate, realuser_id);
     updateText(dueDate);
     // loadDate();
   });
@@ -53,7 +60,7 @@ window.addEventListener("load", () => {
       alert("Please fill out the task");
       return;
     } else {
-      insertData(inputVal, dueDate, "goal", 0, 0);
+      insertData(inputVal, dueDate, "goal", 0, 0, realuser_id);
       //DATAHERE
     }
 
@@ -176,7 +183,14 @@ function loadDate(data) {
         if (is_completed == 0) {
           is_completed = 1;
         }
-        insertData("NA", "NA", "checkBox", goal_id, is_completed);
+        insertData(
+          "NA",
+          "NA",
+          "checkBox",
+          goal_id,
+          is_completed,
+          realuser_id
+        );
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE TRUE
         console.log("changed");
         task_input.style.textDecoration = "line-through";
@@ -186,7 +200,14 @@ function loadDate(data) {
         if (is_completed == 1) {
           is_completed = 0;
         }
-        insertData("NA", "NA", "checkBox", goal_id, is_completed);
+        insertData(
+          "NA",
+          "NA",
+          "checkBox",
+          goal_id,
+          is_completed,
+          realuser_id
+        );
         // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE FALSE
         console.log("revert");
         task_input.style.textDecoration = "none";
@@ -214,7 +235,7 @@ function insertDivEl(data) {
   task_input.value = data.goal_name;
   task_input.setAttribute("readonly", "readonly");
   task_content.appendChild(task_input);
-  let goal_id=data.goal_id;
+  let goal_id = data.goal_id;
   const task_actions = document.createElement("div");
   task_actions.classList.add("actions");
 
@@ -269,7 +290,7 @@ function insertDivEl(data) {
       if (is_completed == 0) {
         is_completed = 1;
       }
-      insertData("NA", "NA", "checkBox", goal_id, is_completed);
+      insertData("NA", "NA", "checkBox", goal_id, is_completed, realuser_id);
       // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE TRUE
       console.log("changed");
       task_input.style.textDecoration = "line-through";
@@ -279,7 +300,7 @@ function insertDivEl(data) {
       if (is_completed == 1) {
         is_completed = 0;
       }
-      insertData("NA", "NA", "checkBox", goal_id, is_completed);
+      insertData("NA", "NA", "checkBox", goal_id, is_completed, realuser_id);
       // UPDATE "IS COMPLETED" BOOLEAN VARIABLE TO BE FALSE
       console.log("revert");
       task_input.style.textDecoration = "none";
@@ -295,7 +316,7 @@ function deleteRowById(goal_id) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        getDateData(dueDate, 3);
+        getDateData(dueDate, realuser_id);
       }
     });
 }
@@ -316,7 +337,7 @@ function updateRowById(goal_name, goal_id) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        getDateData(dueDate, 3);
+        getDateData(dueDate, realuser_id);
       }
     });
 }
@@ -343,7 +364,7 @@ function getDateData(date_added, user_id) {
     .then((response) => response.json())
     .then((data) => loadDate(data["data"]));
 }
-function insertData(inputVal, dueDate, type, goal_id, cValue) {
+function insertData(inputVal, dueDate, type, goal_id, cValue, user_id) {
   if (type == "goal") {
     fetch("https://cronos-productivity.herokuapp.com/insert", {
       headers: {
@@ -356,6 +377,7 @@ function insertData(inputVal, dueDate, type, goal_id, cValue) {
         type: type,
         goal_id: goal_id,
         cValue: cValue,
+        user_id: user_id,
       }),
     })
       .then((response) => response.json())

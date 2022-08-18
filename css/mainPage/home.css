@@ -213,3 +213,6 @@ svg {
     stroke-dashoffset: 160;
   }
 }
+body{
+  overflow: hidden;
+}
