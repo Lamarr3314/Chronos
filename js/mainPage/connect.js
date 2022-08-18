@@ -7,6 +7,13 @@ window.addEventListener("load", () =>{
                         ["Deyby Rodriguez", "10:00 AM", "First time using this application, and I love it. I'm able to get all my tasks done and also stay motivated by looking at these posts."]
 ]
 
+    const realuser_id=getCookie(decodeURIComponent(document.cookie))
+            function getCookie(decodedCookie) {
+            let cookieArr = decodedCookie.split("=");
+            let tempcookie = cookieArr[1];
+            return tempcookie;
+            }
+
 
     function addinformation(name, time, postvalue, likecount, heartcount, carecount, laughcount){
         let likecounter = likecount;
@@ -178,6 +185,7 @@ window.addEventListener("load", () =>{
     }
 
     form.addEventListener("submit", (e) =>{
+        console.log(realuser_id)
         e.preventDefault();
         const inputval = input.value;
         console.log(input.value);
@@ -186,7 +194,7 @@ window.addEventListener("load", () =>{
             return;
         }
         else{
-            addinformation("randomuser", "4 PM", inputval, 0, 0, 0, 0)
+            addinformation(realuser_id, "4 PM", inputval, 0, 0, 0, 0)
         }
     })
 })
