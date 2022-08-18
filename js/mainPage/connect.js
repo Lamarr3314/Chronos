@@ -8,11 +8,11 @@ window.addEventListener("load", () =>{
 ]
 
 
-    function addinformation(name, time, postvalue){
-        let likecounter = 0;
-        let heartcounter = 0;
-        let carecounter = 0;
-        let laughcounter = 0;
+    function addinformation(name, time, postvalue, likecount, heartcount, carecount, laughcount){
+        let likecounter = likecount;
+        let heartcounter = heartcount;
+        let carecounter = carecount;
+        let laughcounter = laughcount;
         const feedcontainer = document.createElement("div");
         feedcontainer.classList.add("feedcontainer");
 
@@ -36,7 +36,7 @@ window.addEventListener("load", () =>{
         const reactions = document.createElement("div");
         reactions.classList.add("reactions");
 
-        
+
         const likecontainer = document.createElement("div");
         likecontainer.classList.add("reaction");
 
@@ -174,7 +174,7 @@ window.addEventListener("load", () =>{
 
     for(const data of presetdata){
         console.log(data);
-        addinformation(data[0], data[1], data[2])
+        addinformation(data[0], data[1], data[2], 0, 0, 0, 0)
     }
 
     form.addEventListener("submit", (e) =>{
@@ -186,7 +186,7 @@ window.addEventListener("load", () =>{
             return;
         }
         else{
-            addinformation("randomuser", "4 PM", inputval)
+            addinformation("randomuser", "4 PM", inputval, 0, 0, 0, 0)
         }
     })
 })
