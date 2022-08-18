@@ -243,7 +243,7 @@ main{
   background-color: rgb(236, 149, 35);
 }
 #page {
-  border: 2px solid black;
+  border: 2px solid var(--gray);
   flex-direction: row;
   border-radius: 25px;
   justify-content: space-between;
@@ -255,7 +255,7 @@ main{
 }
 #page a {
   text-decoration: none;
-  color: black;
+  color: var(--light);
 }
 h1 {
   text-align: center;

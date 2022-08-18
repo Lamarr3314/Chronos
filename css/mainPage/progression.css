@@ -1,3 +1,18 @@
+:root{
+  --dark: #374151;
+  --darker: #1F2937;
+  --darkest: #111827;
+  --gray: #6B7280;
+  --light: #EEE;
+  --pink: #EC4899;
+  --purple: #8B5Cf6;
+  --yellow: #FFD301;
+  --orange: #FF5F00;
+  --green: #04ecd4;
+  --blue:  #04b8e4;
+}
+
+
 #navbar,
 #page {
   display: flex;
@@ -25,7 +40,7 @@
   background-color: rgb(236, 149, 35);
 }
 #page {
-  border: 2px solid black;
+  border: 2px solid var(--gray);
   flex-direction: row;
   border-radius: 25px;
   justify-content: space-between;
@@ -37,10 +52,10 @@
 }
 #page a {
   text-decoration: none;
-  color: black;
 }
 h1 {
   text-align: center;
+  color: var(--light)
 }
 #chartContainer {
   opacity: 1;
@@ -71,7 +86,8 @@ body{
 }
 #navbar a{
   font-size: 16px;
-  font-family: "Fira sans", sans-serif;;
+  font-family: "Fira sans", sans-serif;
+  color: var(--light)
 }
 .button-85 {
   display: flex;
@@ -102,6 +118,7 @@ body{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-bottom: 1.5rem;
 }
 
 .button-85:before {
@@ -192,4 +209,10 @@ body{
 }
 .dayPercent{
   text-align: center;
+}
+
+.orange{
+  background-image: linear-gradient(to right, #f8ae23, #ec4c3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

@@ -5,10 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="connect.js" defer></script>
-    <link rel="stylesheet" href="connect.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/mainPage/connect.css">
 </head>
 <body>
-    
+    <div id="navbar">
+        <div id="photoContainer">
+          <a href="../../index.html"
+            ><img src="../../images/user.png" id="homepageicon"
+          /></a>
+        </div>
+        <div id="page">
+          <div><a href="../mainPage/home.html">Home</a></div>
+          <div><a href="../mainPage/goals.html">Goals</a></div>
+          <div><a href="../mainPage/progression.html">Progress</a></div>
+          <div><a href="../mainPage/connect.html">Connect</a></div>
+        </div>
+      </div>
+
+    <div id = "heading">
+        <h1>Share your achievements</h1>
+    </div>
+
+    <div id = "new-post-container">
+        <form id="new-post-form">
+            <img class = "profile" src = "../../images/empty pfp.png">
+            <textarea
+              type="text"
+              id="new-post-input"
+              placeholder="Just got that one week badge? Share it!"
+            ></textarea>
+            <button id="new-post-submit"><img src="../../images/send.png" /></button>
+        </form>
+        <!-- <img src="../../images/image.png" id="upfile1" style="cursor:pointer" />
+        <input type="file" id="file1"  name="file1" style="display:none" /> -->
+    </div>
+
+    <h1>Your feed</h1>
+    <div id = "yourfeed">
+        <div class = "feedcontainer">
+            <img class = "profile" src = "../../images/empty pfp.png">
+            <div class = "content">
+                <h3><span class = "orange">Uday Manneru</span> | 1:00 AM</h3>
+                <p>With chronos, I was able to complete many of my objectives and stay on track. I finally landed a job at Apple, and it's all thanks to <span class = "orange">#Chronos</span></p>
+                <div class = "reactions">
+                    <div class = "reaction">
+                        <button><img src = "../../images/like.png"></button> <p>0</p>
+                    </div>
+
+                    <div class = "reaction">
+                        <button><img src = "../../images/heart.png"></button> <p>0</p>
+                    </div>
+                    
+                    <img src = "../../images/hug.png">
+                    <img src = "../../images/happy.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src = "../../js/mainPage/connect.js"></script>
 </body>
 </html>

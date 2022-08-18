@@ -1,3 +1,17 @@
+:root{
+  --dark: #374151;
+  --darker: #1F2937;
+  --darkest: #111827;
+  --gray: #6B7280;
+  --light: #EEE;
+  --pink: #EC4899;
+  --purple: #8B5Cf6;
+  --yellow: #FFD301;
+  --orange: #FF5F00;
+  --green: #04ecd4;
+  --blue:  #04b8e4;
+}
+
 #navbar,
 #page {
   display: flex;
@@ -21,7 +35,7 @@
   background-color: rgb(236, 149, 35);
 }
 #page {
-  border: 2px solid black;
+  border: 2px solid var(--gray);
   flex-direction: row;
   border-radius: 25px;
   justify-content: space-between;
@@ -31,10 +45,10 @@
 #homepageicon {
   width: 40px;
 }
-#page a {
+/* #page a {
   text-decoration: none;
   color: black;
-}
+} */
 h1 {
   text-align: center;
 }
@@ -50,7 +64,7 @@ table tr {
   display: flex;
   flex-direction: column;
   margin: 20px;
-  border: 1px dashed black;
+  border: 1px dashed var(--light);
   padding: 15px;
 }
 
@@ -73,17 +87,19 @@ table tr {
 }
 
 #goalsPageBtn {
-  width: 75px;
-  height: 25px;
+  width: 100px;
+  height: 35px;
   transform: skew(20deg);
   background: #ffffff;
+  font-size: 20px;
 }
 
 #progressPageBtn {
-  width: 75px;
-  height: 25px;
+  width: 100px;
+  height: 35px;
   transform: skew(20deg);
   background: #ffffff;
+  font-size: 20px;
 }
 
 #badges {
@@ -110,7 +126,8 @@ table tr {
   width: 28%;
 }
 body{
-  background-color: #374151;;
+  background-color: var(--dark);
+  color: var(--light);
 }
 #navbar{
   box-sizing: border-box;
@@ -118,7 +135,31 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
+
 #navbar a{
   font-family: "Fira sans", sans-serif;
   font-size: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+p{
+  font-size: 25px;
+}
+
+.orange{
+  color: var(--orange)
+}
+
+
+.bluegradient{
+  background-image: linear-gradient(to right, var(--blue), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#usercontainer h2{
+  text-align: center;
+  font-size: 30px;
+
 }
