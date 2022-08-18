@@ -80,7 +80,7 @@ window.addEventListener("load", () => {
         likebutton.name = "clicked";
         likecounter++;
         liketext.innerHTML = likecounter;
-        liketext.style.color = "blue";
+        liketext.style.color = "orange";
       } else {
         likebutton.name = "unclicked";
         likecounter--;
@@ -109,7 +109,7 @@ window.addEventListener("load", () => {
         heartbutton.name = "clicked";
         heartcounter++;
         hearttext.innerHTML = heartcounter;
-        hearttext.style.color = "blue";
+        hearttext.style.color = "orange";
       } else {
         heartbutton.name = "unclicked";
         heartcounter--;
@@ -138,7 +138,7 @@ window.addEventListener("load", () => {
         carebutton.name = "clicked";
         carecounter++;
         caretext.innerHTML = carecounter;
-        caretext.style.color = "blue";
+        caretext.style.color = "orange";
       } else {
         carebutton.name = "unclicked";
         carecounter--;
@@ -166,7 +166,7 @@ window.addEventListener("load", () => {
         laughbutton.name = "clicked";
         laughcounter++;
         laughtext.innerHTML = laughcounter;
-        laughtext.style.color = "blue";
+        laughtext.style.color = "orange";
       } else {
         laughbutton.name = "unclicked";
         laughcounter--;
@@ -186,7 +186,8 @@ window.addEventListener("load", () => {
 
   for (const data of presetdata) {
     console.log(data);
-    addinformation(data[0], data[1], data[2], 0, 0, 0, 0);
+    
+    addinformation(data[0], data[1], data[2], Math.floor(Math.random() * 10) , Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10));
   }
 
   form.addEventListener("submit", (e) => {
