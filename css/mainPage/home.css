@@ -163,3 +163,53 @@ p{
   font-size: 30px;
 
 }
+body {
+  display: grid;
+  height: 100vh; 
+  place-items: center;
+  background: #243b47;
+}
+
+.dashboard {
+  display: flex;
+}
+
+svg {
+  width: 114px;
+  height: 114px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #1A2C34;
+}
+
+[class^="meter-"] {
+  fill: none;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  
+}
+
+.meter-2 {
+  stroke: #ffae00;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 160;
+  animation: progress-2 6s ease-out;
+  stroke-opacity: .9;
+}
+
+
+@keyframes progress-2 {
+  from {
+    stroke-dashoffset: 360;
+  }
+  to {
+    stroke-dashoffset: 160;
+  }
+}

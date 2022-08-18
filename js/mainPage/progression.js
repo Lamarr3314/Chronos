@@ -9,6 +9,7 @@ let dayPercent = document.querySelector(".dayPercent");
 let chart = document.querySelector("#chartContainer");
 let calendarBtn = document.querySelector(".button-85");
 let calendarOn = false;
+let monDateSQL='2022-'
 var i = 0;
 function move() {
   if (i == 0) {
@@ -292,6 +293,7 @@ let thursdayInComplete = 0;
 let fridayInComplete = 0;
 let saturdayInComplete = 0;
 let sundayInComplete = 0;
+
 var config = {
   type: "bar",
   backdropColor: "rgba(255, 255, 255, 1.1)",
@@ -312,6 +314,7 @@ var config = {
         label: "Percentage of your  Goal",
         fontColor: "rgb(255, 255, 255)",
         data: [10, 60, 30, 90, 20, 100, 38],
+        calor:"rgba(255, 255, 255)",
         backdropColor: "rgba(255, 255, 255, 1)",
         backgroundColor: [
           "#f17e3c",
