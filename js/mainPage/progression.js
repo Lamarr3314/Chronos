@@ -1,7 +1,32 @@
 //check the console for date click event
 //Fixed day highlight
 //Added previous month and next month view
-
+let dateChose = new Date();
+let todayGoalPercent = 40;
+var elem = document.getElementById("myBar");
+let calender = document.querySelector(".calendar");
+let dayPercent = document.querySelector(".dayPercent");
+let chart = document.querySelector("#chartContainer");
+let calendarBtn = document.querySelector(".button-85");
+let calendarOn = false;
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= todayGoalPercent) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        dayPercent.innerHTML = width + "%";
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
 function CalendarControl() {
   const calendar = new Date();
   const calendarControl = {
@@ -76,6 +101,32 @@ function CalendarControl() {
           calendarControl.calMonthName[calendar.getMonth()]
         } ${calendar.getFullYear()}`
       );
+      dateChose = `${e.target.textContent} ${
+        calendarControl.calMonthName[calendar.getMonth()]
+      } ${calendar.getFullYear()}`;
+      calendarOn = false;
+      calender.style.display = "none";
+      chart.style.display = "flex";
+      // console.log(calendar.value)
+      let date = e.target.textContent;
+      if (date < 10) {
+        date = "0" + date;
+      }
+      console.log(date);
+      let month = calendar.getMonth();
+      month += 1;
+      if (month < 10) {
+        month = "0" + month;
+      }
+      console.log(month);
+      let year = calendar.getFullYear();
+      console.log(year);
+      let fullDate = year + "-" + month + "-" + date;
+      console.log(fullDate);
+      // console.log(newDateArray);
+      // let newDate = newDateArray[0] + newDateArray[1];
+      // console.log(newDate);
+      getDateData(fullDate, 3);
     },
     plotSelectors: function () {
       document.querySelector(
@@ -234,6 +285,13 @@ let thursdayComplete = 0;
 let fridayComplete = 0;
 let saturdayComplete = 0;
 let sundayComplete = 0;
+let mondayInComplete = 0;
+let tuesdayInComplete = 0;
+let wednesdayInComplete = 0;
+let thursdayInComplete = 0;
+let fridayInComplete = 0;
+let saturdayInComplete = 0;
+let sundayInComplete = 0;
 var config = {
   type: "bar",
   backdropColor: "rgba(255, 255, 255, 1.1)",
@@ -277,15 +335,73 @@ var config = {
 };
 var cookieChart = new Chart(canvasElement, config);
 window.onload = function () {
+  move();
   console.log("The page was loaded successfully");
-  getDateData("2022-08-15", 3);
 };
 function loadDate(data) {
+  if (data.length === 0) {
+    let dayOTW = new Date(date_added);
+    dayOTW = dayOTW.getUTCDay();
+    switch (dayOTW) {
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      case 6:
+        break;
+      case 7:
+        break;
+    }
+    console.log("u got no data");
+    return;
+  }
   data.forEach(function ({ goal_id, goal_name, date_added, is_completed }) {
-    let current = new Date(date_added);
-    console.log(date_added);
-    console.log(current.getUTCDay());
+    // list.innerHTML = "";
+    let outtaLoop = false;
+    let dayOTW = new Date(date_added);
+    dayOTW = dayOTW.getUTCDay();
+    fulldate = new Date(date_added);
+    let filteredDay = fulldate.getDate();
+    let filteredMonth = fulldate.getDate();
+    let filteredYear = fulldate.getDate();
+
+    console.log("without function: " + fulldate);
+    let upDate = addDay(fulldate);
+    console.log("with n:" + upDate);
+    console.log("Day number" + dayOTW);
+    switch (dayOTW) {
+      case 1:
+        break;
+      case 2:
+        console.log("GOOD");
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      case 6:
+        break;
+      case 7:
+        break;
+    }
+    console.log("monday Complete:" + mondayComplete);
+    console.log("monday inComplete:" + mondayInComplete);
   });
+}
+if (calendarOn == false) {
+  calendarBtn.onclick = function () {
+    calender.style.display = "flex";
+    console.log(dateChose);
+    chart.style.display = "none";
+  };
 }
 function getDateData(date_added, user_id) {
   fetch(
@@ -296,4 +412,15 @@ function getDateData(date_added, user_id) {
   )
     .then((response) => response.json())
     .then((data) => loadDate(data["data"]));
+}
+function addDay(date) {
+  let m = date.getMonth();
+  m += 1;
+  let y = date.getFullYear();
+  let d = date.getDate();
+  d += 1;
+  if (m < 10) {
+    m = "0" + m;
+  }
+  return y + "-" + m + "-" + d;
 }

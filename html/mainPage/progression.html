@@ -10,7 +10,7 @@
     <link href="../../css/mainPage/calendar.css" rel="stylesheet" type="text/css" />
     <div id="navbar">
       <div id="photoContainer">
-        <a href="../signIn/index.html"
+        <a href="../../index.html"
           ><img src="../../images/user.png" id="homepageicon"
         /></a>
       </div>
@@ -24,17 +24,19 @@
   </head>
   <body>
     <div id="everything">
-<button class="button-85" role="button">Button 85</button>
-      <div class="slidecontainer">
-        <p>Your Daily Progression:</p>
-        <input type="range" min="1" max="100" value="50" class="slider" />
+      <h1>Your Progress Today:</h1>
+      <div id="myProgress">
+        <div id="myBar"></div>
       </div>
-
+      <h2 class="dayPercent"></h2>
+<button class="button-85" role="button"><p>Calendar</p></button>
+      <div class="slidecontainer">
       <h1>Your weekly Goal Success Percentage</h1>
       <div id="chartContainer">
         <canvas id="chart"></canvas>
       </div>
       <div class="calendar"></div>
+      
     </div>
   </body>
 </html>
